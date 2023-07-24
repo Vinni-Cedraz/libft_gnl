@@ -178,7 +178,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 // string s:
 char		*ft_strtrim(char const *s1, char const *set);
 // ft_split receives a string and a set of chars, and it returns an array of
-// strings, each one being a substring of s1 that is delimited by a char c:
+// strings, each one being a substring of s that is delimited by a char c:
 t_split		*ft_split(char const *s, char c);
 
 // OUTPUT MANIPULATION FUNCTIONS:
