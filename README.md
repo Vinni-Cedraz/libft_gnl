@@ -99,7 +99,10 @@
 * ft_lstshift
 
 ## FURTHER DOCUMENTATION FOR EACH FUNCTION IS FOUND IN THE libft.h ##
+![image](https://github.com/Vinni-Cedraz/libft_gnl/assets/92558763/2299f5fd-62e9-4e03-9845-4582e14a5a06)
+
 
 ## I assume most text editors allow you to view the info in the header file from the inside of a ".c" file, like so:
+![image](https://github.com/Vinni-Cedraz/libft_gnl/assets/92558763/810afc8b-2db3-4a3b-b3a3-a61f21907648)
 
-**on Lunarvim, SHIFT-K when the cursor is over a function does the magic btw**
+**on [ft_neovim](github.com/Vinni-Cedraz/ft_neovim), SHIFT-K when the cursor is over a function does the magic btw**
