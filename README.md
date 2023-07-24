@@ -102,7 +102,7 @@
 ![image](https://github.com/Vinni-Cedraz/libft_gnl/assets/92558763/2299f5fd-62e9-4e03-9845-4582e14a5a06)
 
 
-## I assume most text editors allow you to view the info in the header file from inside of a ".c" file, like so:
+## I assume most IDEs allow you to view the info in the header file from inside of a ".c" file, like so:
 ![image](https://github.com/Vinni-Cedraz/libft_gnl/assets/92558763/fc52957f-bf9e-4ee2-b11f-489539e50e3b)
 
 **on [ft_neovim](github.com/Vinni-Cedraz/ft_neovim), SHIFT-K when the cursor is over a function does the magic btw**
