@@ -64,6 +64,7 @@ ft_swap \
 ft_tolower \
 ft_toupper \
 ft_bzero \
+ft_atol \
 ft_isalnum \
 ft_itoa_base \
 ft_putendl_fd \

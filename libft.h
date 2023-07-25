@@ -240,5 +240,7 @@ int			ft_ishexlow(char *s);
 int			is_whitespace(char c);
 // randomize an array in place, has forbidden functions use carefully
 void		ft_randomize_array(int *arr, int arr_size);
+// atoi but returns a long
+long		ft_atol(char *str);
 
 #endif
