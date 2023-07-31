@@ -18,6 +18,8 @@
 # include <unistd.h>
 
 # define INTMIN -2147483648
+# define UPPER "0123456789ABCDEF"
+# define LOWER "0123456789abcdef"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
@@ -231,7 +233,7 @@ char		*ft_gnl(int fd);
 // this frees a t_split pointer:
 void		ft_free_t_split(t_split *split);
 // this is ft_atoi_base, it converts a string to an int in a given base:
-int			ft_atoi_base(char *str, char *base);
+int			ft_atoi_base(const char *str, int base);
 // cheks if its an uppercase hex string:
 int			ft_ishexup(char *s);
 // hex low:

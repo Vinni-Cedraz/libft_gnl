@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	*mstr(char *s, int n);
+static char	*malloc_str(char *s, int n);
 static int	numlen(int n);
 static int	handle_negative(int nbr, char **iter);
 static void	build_str(int nbr, char *str, char **iter);
@@ -24,7 +24,7 @@ char	*ft_itoa(int nbr)
 	char	*iter;
 
 	if (nbr == INTMIN)
-		return (mstr("-2147483648", 12));
+		return (malloc_str("-2147483648", 12));
 	strlen = numlen(nbr);
 	str = (char *)malloc(sizeof(char) * strlen + 1);
 	iter = str;
@@ -34,17 +34,17 @@ char	*ft_itoa(int nbr)
 	return (str);
 }
 
-static char	*mstr(char *s, int n)
+static char	*malloc_str(char *s, int n)
 {
 	int		i;
-	char	*mstr;
+	char	*malloc_str;
 
 	i = -1;
-	mstr = (char *)malloc((n + 1) * sizeof(char));
+	malloc_str = (char *)malloc((n + 1) * sizeof(char));
 	while (++i < n)
-		*(mstr + i) = *s++;
-	mstr[i] = '\0';
-	return (mstr);
+		*(malloc_str + i) = *s++;
+	malloc_str[i] = '\0';
+	return (malloc_str);
 }
 
 static int	numlen(int n)
