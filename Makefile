@@ -12,7 +12,6 @@
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-NAME_BONUS = libft_bonus.a
 CFLAGS = -Wall -Werror -Wextra -O3
 RM = rm -f
 OBJS_PATH = ./objs/
@@ -102,15 +101,26 @@ ft_lstshift \
 	
 OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
-message = Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR)
-bmessage = Bonus Objects are now $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME_BONUS)$(DEF_COLOR)
+message = \nObjects are $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR).\n
+bmessage = \nBonus Objects are $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR).\n
+
+ifdef WITH_BONUS
+	OBJS=$(OBJSB)
+	message=$(bmessage)
+endif
 
 all: $(OBJS_PATH) $(NAME)
-	@printf "\n$(message)\n"
+
+define ft_print_ar
+	printf "$(YELLOW)[ Linking ] $(GRAY) $(1) $(DEF_COLOR)\n"
+	printf "ar -rcs $(NAME) $(1)\n"
+	ar -rcs $(NAME) $(1)
+endef
 
 $(NAME): $(OBJS)
 	@printf "\n$(CYAN)linking objects into library $(NAME) $(DEF_COLOR)\n"
-	ar -rcs $(NAME) $?
+	@$(foreach obj,$?,$(call ft_print_ar,$(obj)) &&) true
+	@printf "$(message)"
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)
@@ -120,11 +130,7 @@ $(OBJS_PATH)%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 bonus: $(OBJSB_PATH) $(NAME_BONUS)
-	@printf "\n$(bmessage)\n"
-
-$(NAME_BONUS): $(OBJSB)
-	@printf "\n$(CYAN)linking bonus objects into library $(NAME_BONUS) $(DEF_COLOR)\n"
-	ar -rcs $(NAME_BONUS) $?
+	@make --no-print-directory WITH_BONUS=TRUE
 
 $(OBJSB_PATH):
 	@mkdir -p $(OBJSB_PATH)
