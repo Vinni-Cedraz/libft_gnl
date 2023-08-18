@@ -88,7 +88,7 @@
 * ft_ishexup
 * ft_memorylen
 * ft_numlen
-* ft_lst_make_it_circular
+* ft_lst_circular
 * ft_lstadd_here
 * ft_lstdel_here
 * ft_lstcircular_free

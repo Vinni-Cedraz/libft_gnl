@@ -54,7 +54,7 @@ void					ft_lstshift(t_node **lst);
 // frees the first node of a list
 t_node					*ft_lstpop(t_node **lst);
 // makes a list become a circular list
-void					ft_lst_make_it_circular(t_node **head);
+void					ft_lst_circular(t_node **head);
 // frees a circular list
 void					ft_lstcircular_free(t_node **head);
 // checks if the parenthesis, braces and brackets are balanced in an expression

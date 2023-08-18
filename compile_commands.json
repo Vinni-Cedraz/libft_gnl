@@ -953,11 +953,11 @@
    "-Wextra",
    "-O3",
    "-c",
-   "ft_lst_make_it_circular.c",
+   "ft_lst_circular.c",
    "-o",
-   "objs_bonus/ft_lst_make_it_circular.o"
+   "objs_bonus/ft_lst_circular.o"
   ],
-  "file": "ft_lst_make_it_circular.c"
+  "file": "ft_lst_circular.c"
  },
  {
   "directory": "/root/philosophers/printf_libft_gnl/libft/libft_gnl",

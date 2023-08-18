@@ -13,7 +13,8 @@
 ## SET-UP VARIABLES ##
 NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra -O3
-RM = rm -f
+R = rm -f
+RD = rm -rf
 OBJS_PATH = ./objs/
 OBJSB_PATH = ./objs_bonus/
 
@@ -94,7 +95,7 @@ ft_lstadd_here \
 ft_lstdel_here \
 ft_lstgetby_index \
 ft_lstgetby_content \
-ft_lst_make_it_circular \
+ft_lst_circular \
 ft_lstcircular_free \
 ft_lstpop \
 ft_lstshift \
@@ -103,6 +104,8 @@ OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
 message = \nObjects are $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR).\n
 bmessage = \nBonus Objects are $(GREEN)linked$(DEF_COLOR) into $(RED)$(NAME)$(DEF_COLOR).\n
+armessage = $(YELLOW)[ Linking ] $(DEF_COLOR) $(notdir $(1))  $(YELLOW) with instruction: $(DEF_COLOR)  ar -rcs $(NAME) $(1)                   
+ccmessage = $(CYAN)compiling source files into object files $(DEF_COLOR)\n
 
 ifdef WITH_BONUS
 	OBJS=$(OBJSB)
@@ -111,40 +114,49 @@ endif
 
 all: $(OBJS_PATH) $(NAME)
 
-define ft_print_ar
-	printf "$(YELLOW)[ Linking ] $(GRAY) $(1) $(DEF_COLOR)\n"
-	printf "ar -rcs $(NAME) $(1)\n"
+define ft_make_archive
 	ar -rcs $(NAME) $(1)
+	printf "\r$(armessage)"
 endef
 
 $(NAME): $(OBJS)
 	@printf "\n$(CYAN)linking objects into library $(NAME) $(DEF_COLOR)\n"
-	@$(foreach obj,$?,$(call ft_print_ar,$(obj)) &&) true
+	@$(foreach obj,$?,$(call ft_make_archive,$(obj)) &&) true
 	@printf "$(message)"
 
 $(OBJS_PATH):
+	@printf "$(ccmessage)"
 	@mkdir -p $(OBJS_PATH)
 
 $(OBJS_PATH)%.o: %.c
-	@printf "$(GREEN)[ Compiling ] $(GRAY) $< \n$(DEF_COLOR)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "\r$(GREEN)[ Compiling ]$(DEF_COLOR) $< $(GREEN) with instruction: $(DEF_COLOR) $(CC) $(CFLAGS) -c $< -o $@             "
+	@$(CC) $(CFLAGS) -c $< -o $@
 	
 bonus: $(OBJSB_PATH) $(NAME_BONUS)
 	@make --no-print-directory WITH_BONUS=TRUE
 
 $(OBJSB_PATH):
+	@printf "$(ccmessage)"
 	@mkdir -p $(OBJSB_PATH)
 
 $(OBJSB_PATH)%.o: %.c
-	@printf "$(GREEN)[ Compiling ] $(GRAY) $< \n$(DEF_COLOR)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "\r$(GREEN)[ Compiling ]$(DEF_COLOR) $< $(GREEN) with instruction: $(DEF_COLOR) $(CC) $(CFLAGS) -c $< -o $@"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJS_PATH)
-	@rm -rf $(OBJSB_PATH)
+	@$(RD) $(OBJS_PATH)
+	@$(RD) $(OBJSB_PATH)
+
+bclean:
+	@$(RD) $(OBJSB_PATH)
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -f $(NAME_BONUS)
+	@$(R) $(NAME)
+	@$(R) $(NAME_BONUS)
+
+fbclean: bclean
+	@$(R) $(NAME_BONUS)
 
 re: fclean all
+
+bre: fbclean bonus

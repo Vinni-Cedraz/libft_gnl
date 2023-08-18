@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_make_it_circular.c                          :+:      :+:    :+:   */
+/*   ft_lst_circular.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 22:05:40 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/25 23:32:30 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/08/18 15:08:11 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/08/18 15:08:12 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_bonus.h"
 
-void	ft_lst_make_it_circular(t_node **head)
+void	ft_lst_circular(t_node **head)
 {
 	t_node	*tail;
 
