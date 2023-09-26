@@ -83,6 +83,7 @@ ft_split \
 ft_randomize_array \
 ft_iswhitespace \
 ft_check_balanced \
+ft_fmt_str \
 
 BSRCS = ft_lstadd_back \
 ft_lstadd_front \
