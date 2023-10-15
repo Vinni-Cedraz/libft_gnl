@@ -49,9 +49,6 @@
 **from #include <strings.h>**
 * bzero
 
-**from #include <stdio.h>**
-* printf
-
 ## Second Part - functions that were not in the libc
 
 * ft_substr
