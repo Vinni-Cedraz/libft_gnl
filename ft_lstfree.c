@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft_bonus.h"
 
 void	ft_lstfree(t_node **list)
@@ -26,5 +25,4 @@ void	ft_lstfree(t_node **list)
 		free(tmp);
 		tmp = *list;
 	}
-	free(list);
 }
