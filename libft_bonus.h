@@ -60,4 +60,6 @@ void					ft_lstcircular_free(t_node **head);
 // checks if the parenthesis, braces and brackets are balanced in an expression
 int						ft_check_balanced(char expression[]);
 
+t_node	*ft_lstreverse(t_node *head);
+
 #endif

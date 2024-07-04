@@ -12,7 +12,7 @@
 
 ## SET-UP VARIABLES ##
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -g3
 R = rm -f
 RD = rm -rf
 OBJS_PATH = ./objs/
@@ -100,6 +100,7 @@ ft_lst_circular \
 ft_lstcircular_free \
 ft_lstpop \
 ft_lstshift \
+ft_lstreverse 
 	
 OBJS = $(addprefix $(OBJS_PATH), $(addsuffix .o, $(SRCS)))
 OBJSB = $(addprefix $(OBJSB_PATH), $(addsuffix .o, $(BSRCS)))
